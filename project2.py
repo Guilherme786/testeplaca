@@ -3,17 +3,18 @@ import cv2
 #############################################################################
 frameWidth = 640
 frameHeigth = 480
-nPlateCascade = cv2.CascadeClassifier(cv2.data.haarcascades +"Resourcess/hearcascade_russian_plate_number.xml")
+nPlateCascade = cv2.CascadeClassifier(cv2.data.haarcascades +"haarcascade_russian_plate_number.xml")
+img = cv2.imread('C:/Users/Cast/Downloads/photo_2022-02-23_19-48-34.jpg')
 minArea = 200
 color = (255,0,255)
 #############################################################################
-cap = cv2.VideoCapture(0)
-cap.set(3, frameWidth)
-cap.set(4, frameHeigth)
-cap.set(10,150)
+#cap = cv2.VideoCapture(0)
+#cap.set(3, frameWidth)
+#cap.set(4, frameHeigth)
+#cap.set(10,150)
 
 while True:
-    success,img = cap.read()
+    #success,img = cap.read()
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     numberPlates = nPlateCascade.detectMultiScale(imgGray,1.1,10)
     for (x,y,w,h) in numberPlates:
